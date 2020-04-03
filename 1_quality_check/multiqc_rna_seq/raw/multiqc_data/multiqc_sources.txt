@@ -1,0 +1,3 @@
+Module	Section	Sample Name	Source
+FastQC	all_sections	HL_CS17_45.1	/domus/h1/sarasl/git/GenomeAnalysis/1_quality_check/fastqc_rna_seq/raw/HL_CS17_45.1_fastqc.zip
+FastQC	all_sections	HL_CS17_45.2	/domus/h1/sarasl/git/GenomeAnalysis/1_quality_check/fastqc_rna_seq/raw/HL_CS17_45.2_fastqc.zip
