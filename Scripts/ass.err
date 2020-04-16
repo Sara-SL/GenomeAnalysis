@@ -1,0 +1,886 @@
+
+Version 2.04: released on July 13th, 2012
+Compile Nov 20 2013	12:17:09
+
+********************
+Pregraph
+********************
+
+Parameters: pregraph -s /home/sarasl/git/GenomeAnalysis/2_genome_assembly/SOAPdenovo.config -K 49 -p 2 -R -o /home/sarasl/git/GenomeAnalysis/2_genome_assembly/SOAPdenovo_output_K49 
+
+In /home/sarasl/git/GenomeAnalysis/2_genome_assembly/SOAPdenovo.config, 6 lib(s), maximum read length 100, maximum name length 256.
+
+2 thread(s) initialized.
+Import reads from file:
+ /home/sarasl/git/GenomeAnalysis/Data/wgs_data/bat_175.trim_1P.fastq.gz
+Import reads from file:
+ /home/sarasl/git/GenomeAnalysis/Data/wgs_data/bat_175.trim_2P.fastq.gz
+Import reads from file:
+ /home/sarasl/git/GenomeAnalysis/Data/wgs_data/bat_175.trim_1U.fastq.gz
+Import reads from file:
+ /home/sarasl/git/GenomeAnalysis/Data/wgs_data/bat_175.trim_2U.fastq.gz
+Import reads from file:
+ /home/sarasl/git/GenomeAnalysis/Data/wgs_data/bat_400.trim_1P.fastq.gz
+Import reads from file:
+ /home/sarasl/git/GenomeAnalysis/Data/wgs_data/bat_400.trim_2P.fastq.gz
+Import reads from file:
+ /home/sarasl/git/GenomeAnalysis/Data/wgs_data/bat_400.trim_1U.fastq.gz
+Import reads from file:
+ /home/sarasl/git/GenomeAnalysis/Data/wgs_data/bat_400.trim_2U.fastq.gz
+Import reads from file:
+ /home/sarasl/git/GenomeAnalysis/Data/wgs_data/bat_800.trim_1P.fastq.gz
+Import reads from file:
+ /home/sarasl/git/GenomeAnalysis/Data/wgs_data/bat_800.trim_2P.fastq.gz
+Import reads from file:
+ /home/sarasl/git/GenomeAnalysis/Data/wgs_data/bat_800.trim_1U.fastq.gz
+Import reads from file:
+ /home/sarasl/git/GenomeAnalysis/Data/wgs_data/bat_800.trim_2U.fastq.gz
+Time spent on hashing reads: 380s, 23751138 read(s) processed.
+LIB(s) information:
+ [LIB] 0, avg_ins 175, reverse 0.
+ [LIB] 1, avg_ins 400, reverse 0.
+ [LIB] 2, avg_ins 800, reverse 0.
+ [LIB] 3, avg_ins 3000, reverse 1.
+ [LIB] 4, avg_ins 5500, reverse 1.
+ [LIB] 5, avg_ins 9000, reverse 1.
+147756935 node(s) allocated, 1152032015 kmer(s) in reads, 1152032015 kmer(s) processed.
+done hashing nodes
+140631753 linear node(s) marked.
+Time spent on marking linear nodes: 4s.
+Time spent on pre-graph construction: 385s.
+
+Start to remove frequency-one-kmer tips shorter than 98.
+Total 2535531 tip(s) removed.
+2 thread(s) initialized.
+767404 linear node(s) marked.
+Start to remove tips with minority links.
+1231693 tip(s) removed in cycle 1.
+12488 tip(s) removed in cycle 2.
+83 tip(s) removed in cycle 3.
+0 tip(s) removed in cycle 4.
+Total 1244264 tip(s) removed.
+2 thread(s) initialized.
+0 linear node(s) marked.
+Time spent on removing tips: 97s.
+
+4996018 (2498049) edge(s) and 617979 extra node(s) constructed.
+Time spent on constructing edges: 63s.
+
+In file: /home/sarasl/git/GenomeAnalysis/2_genome_assembly/SOAPdenovo.config, max seq len 100, max name len 256.
+2 thread(s) initialized.
+Import reads from file:
+ /home/sarasl/git/GenomeAnalysis/Data/wgs_data/bat_175.trim_1P.fastq.gz
+Import reads from file:
+ /home/sarasl/git/GenomeAnalysis/Data/wgs_data/bat_175.trim_2P.fastq.gz
+Import reads from file:
+ /home/sarasl/git/GenomeAnalysis/Data/wgs_data/bat_175.trim_1U.fastq.gz
+Import reads from file:
+ /home/sarasl/git/GenomeAnalysis/Data/wgs_data/bat_175.trim_2U.fastq.gz
+Import reads from file:
+ /home/sarasl/git/GenomeAnalysis/Data/wgs_data/bat_400.trim_1P.fastq.gz
+Import reads from file:
+ /home/sarasl/git/GenomeAnalysis/Data/wgs_data/bat_400.trim_2P.fastq.gz
+Import reads from file:
+ /home/sarasl/git/GenomeAnalysis/Data/wgs_data/bat_400.trim_1U.fastq.gz
+Import reads from file:
+ /home/sarasl/git/GenomeAnalysis/Data/wgs_data/bat_400.trim_2U.fastq.gz
+Import reads from file:
+ /home/sarasl/git/GenomeAnalysis/Data/wgs_data/bat_800.trim_1P.fastq.gz
+Import reads from file:
+ /home/sarasl/git/GenomeAnalysis/Data/wgs_data/bat_800.trim_2P.fastq.gz
+Import reads from file:
+ /home/sarasl/git/GenomeAnalysis/Data/wgs_data/bat_800.trim_1U.fastq.gz
+Import reads from file:
+ /home/sarasl/git/GenomeAnalysis/Data/wgs_data/bat_800.trim_2U.fastq.gz
+23751138 read(s) processed.
+Time spent on:
+ importing reads: 71s,
+ chopping reads to kmers: 65s,
+ searching kmers: 256s,
+ aligning reads to edges: 72s,
+ searching (K+1)mers: 29s,
+ adding pre-arcs: 33s,
+ recording read paths: 6s.
+271818826 marker(s) output.
+Reads alignment done, 2473184 read(s) deleted, 5254022 pre-arc(s) added.
+LIB(s) information:
+ [LIB] 0, avg_ins 175, reverse 0.
+ [LIB] 1, avg_ins 400, reverse 0.
+ [LIB] 2, avg_ins 800, reverse 0.
+ [LIB] 3, avg_ins 3000, reverse 1.
+ [LIB] 4, avg_ins 5500, reverse 1.
+ [LIB] 5, avg_ins 9000, reverse 1.
+Time spent on aligning reads: 540s.
+
+1768579 vertex(es) output.
+Overall time spent on constructing pre-graph: 18m.
+
+
+********************
+Contig
+********************
+
+Parameters: contig -g /home/sarasl/git/GenomeAnalysis/2_genome_assembly/SOAPdenovo_output_K49 -M 1 -R -s /home/sarasl/git/GenomeAnalysis/2_genome_assembly/SOAPdenovo.config -p 2 
+
+There are 1768579 kmer(s) in vertex file.
+There are 4996018 edge(s) in edge file.
+Kmers sorted.
+4996018 edge(s) input.
+6346518 pre-arcs loaded.
+140630238 markers overall.
+140630238 markers loaded.
+1250016 none-palindrome edge(s) swapped, 0 palindrome edge(s) processed.
+4996018 edge(s) sorted.
+Arcs sorted.
+63812 repeat(s) are solvable, 127720 more edge(s).
+255440 dead arc(s) removed.
+Time spent on solving repeat: 1s.
+Start to pinch bubbles, cutoff 0.100000, MAX NODE NUM 3, MAX DIFF NUM 2.
+108675 start points, 4161160 dheap nodes.
+1213387 pair(s) found, 11823 pair of path(s) compared, 8909 pair(s) merged.
+Sequence comparison failed:
+ Path crossing deleted edge                         0
+ Length difference of two paths greater than two    987
+ Mismatch score greater than cutoff (2)             222
+ Mismatch score ratio greater than cutoff (0.1)     0
+ Path length shorter than (Kmer-1)                  1705
+DFibHeap: 503669 node(s) allocated.
+363767 edge(s) concatenated in cycle 1.
+8716 edge(s) concatenated in cycle 2.
+0 edge(s) concatenated in cycle 3.
+Time spent on pinching bubbles: 9s.
+Start to destroy weak inner edges.
+141691 weak inner edge(s) destroyed in cycle 1.
+1093 weak inner edge(s) destroyed in cycle 2.
+4 weak inner edge(s) destroyed in cycle 3.
+0 weak inner edge(s) destroyed in cycle 4.
+282761 dead arc(s) removed.
+28384 inner edge(s) with coverage lower than or equal to 1 destroyed.
+62142 dead arc(s) removed.
+229286 edge(s) concatenated in cycle 1.
+1266 edge(s) concatenated in cycle 2.
+0 edge(s) concatenated in cycle 3.
+Before compacting, 5123738 edge(s) existed.
+After compacting, 3557044 edge(s) left.
+
+Strict: 0, cutoff length: 98.
+284259 tips cut in cycle 1.
+52374 tips cut in cycle 2.
+11277 tips cut in cycle 3.
+3691 tips cut in cycle 4.
+1493 tips cut in cycle 5.
+685 tips cut in cycle 6.
+344 tips cut in cycle 7.
+120 tips cut in cycle 8.
+31 tips cut in cycle 9.
+34 tips cut in cycle 10.
+20 tips cut in cycle 11.
+14 tips cut in cycle 12.
+14 tips cut in cycle 13.
+2 tips cut in cycle 14.
+3 tips cut in cycle 15.
+2 tips cut in cycle 16.
+0 tips cut in cycle 17.
+212077 dead arc(s) removed.
+145148 edge(s) concatenated in cycle 1.
+1148 edge(s) concatenated in cycle 2.
+8 edge(s) concatenated in cycle 3.
+0 edge(s) concatenated in cycle 4.
+Before compacting, 3557044 edge(s) existed.
+After compacting, 2555710 edge(s) left.
+
+There are 223408 contig(s) longer than 100, sum up 46293865 bp, with average length 207.
+The longest length is 14885 bp, contig N50 is 209 bp,contig N90 is 124 bp.
+1277895 contig(s) longer than 50 output.
+
+Time spent on constructing contig: 1m.
+
+
+********************
+Map
+********************
+
+Parameters: map -s /home/sarasl/git/GenomeAnalysis/2_genome_assembly/SOAPdenovo.config -g /home/sarasl/git/GenomeAnalysis/2_genome_assembly/SOAPdenovo_output_K49 -p 2 -K 49 
+
+Kmer size: 49.
+Contig length cutoff: 51.
+
+1277895 contig(s), maximum sequence length 14885, minimum sequence length 50, maximum name length 10.
+Time spent on parsing contigs file: 0s.
+2 thread(s) initialized.
+Time spent on hashing contigs: 22s.
+43503752 node(s) allocated, 44737350 kmer(s) in contigs, 44737350 kmer(s) processed.
+Time spent on graph construction: 23s.
+
+Time spent on aligning long reads: 0s.
+
+In file: /home/sarasl/git/GenomeAnalysis/2_genome_assembly/SOAPdenovo.config, max seq len 100, max name len 256
+2 thread(s) initialized.
+2555710 edge(s) in the graph.
+Import reads from file:
+ /home/sarasl/git/GenomeAnalysis/Data/wgs_data/bat_175.trim_1P.fastq.gz
+Import reads from file:
+ /home/sarasl/git/GenomeAnalysis/Data/wgs_data/bat_175.trim_2P.fastq.gz
+Current insert size is 175, map_len is 32.
+Import reads from file:
+ /home/sarasl/git/GenomeAnalysis/Data/wgs_data/bat_400.trim_1P.fastq.gz
+Import reads from file:
+ /home/sarasl/git/GenomeAnalysis/Data/wgs_data/bat_400.trim_2P.fastq.gz
+Current insert size is 400, map_len is 32.
+Import reads from file:
+ /home/sarasl/git/GenomeAnalysis/Data/wgs_data/bat_800.trim_1P.fastq.gz
+Import reads from file:
+ /home/sarasl/git/GenomeAnalysis/Data/wgs_data/bat_800.trim_2P.fastq.gz
+Current insert size is 800, map_len is 32.
+Import reads from file:
+ /home/sarasl/git/GenomeAnalysis/Data/wgs_data/bat_2to4kb.trim_1P.fastq.gz
+Import reads from file:
+ /home/sarasl/git/GenomeAnalysis/Data/wgs_data/bat_2to4kb.trim_2P.fastq.gz
+Current insert size is 3000, map_len is 35.
+Import reads from file:
+ /home/sarasl/git/GenomeAnalysis/Data/wgs_data/bat_5to6kb.trim_1P.fastq.gz
+Import reads from file:
+ /home/sarasl/git/GenomeAnalysis/Data/wgs_data/bat_5to6kb.trim_2P.fastq.gz
+Current insert size is 5500, map_len is 35.
+Import reads from file:
+ /home/sarasl/git/GenomeAnalysis/Data/wgs_data/bat_8to10kb.trim_1P.fastq.gz
+Import reads from file:
+ /home/sarasl/git/GenomeAnalysis/Data/wgs_data/bat_8to10kb.trim_2P.fastq.gz
+Current insert size is 9000, map_len is 35.
+
+Total reads         26488942
+Reads in gaps       12682655
+Ratio               47.9%
+Reads on contigs    20535590
+Ratio               77.5%
+6 pe insert size, the largest boundary is 26488942.
+
+LIB(s) information:
+ [LIB] 0, avg_ins 175, reverse 0.
+ [LIB] 1, avg_ins 400, reverse 0.
+ [LIB] 2, avg_ins 800, reverse 0.
+ [LIB] 3, avg_ins 3000, reverse 1.
+ [LIB] 4, avg_ins 5500, reverse 1.
+ [LIB] 5, avg_ins 9000, reverse 1.
+Time spent on aligning reads: 487s.
+
+Overall time spent on alignment: 8m.
+
+
+********************
+Scaff
+********************
+
+Parameters: scaff -g /home/sarasl/git/GenomeAnalysis/2_genome_assembly/SOAPdenovo_output_K49 -p 2 
+
+Files for scaffold construction are OK.
+
+There are 6 grad(s), 26488942 read(s), max read len 100.
+Kmer size: 49
+There are 2555710 edge(s) in edge file.
+Mask contigs with coverage lower than 1.2 or higher than 24.0, and strict length 0.
+Average contig coverage is 12, 700180 contig(s) masked.
+Mask contigs shorter than 51, 1449565 contig(s) masked.
+3369750 arc(s) loaded, average weight is 5.
+1277895 contig(s) loaded.
+Done loading updated edges.
+Time spent on loading updated edges: 6s.
+
+*****************************************************
+Start to load paired-end reads information.
+
+For insert size: 175
+ Total PE links                      1101183
+ Normal PE links on same contig      609364
+ Incorrect oriented PE links         39179
+ PE links of too small insert size   46628
+ PE links of too large insert size   0
+ Correct PE links                    406012
+ Accumulated connections             367726
+Use contigs longer than 175 to estimate insert size: 
+ PE links               486225
+ Average insert size    171
+ SD                     49
+183863 new connections.
+
+For insert size: 400
+ Total PE links                      4239805
+ Normal PE links on same contig      1283052
+ Incorrect oriented PE links         250
+ PE links of too small insert size   3456
+ PE links of too large insert size   0
+ Correct PE links                    2953042
+ Accumulated connections             2033904
+Use contigs longer than 400 to estimate insert size: 
+ PE links               1127665
+ Average insert size    282
+ SD                     56
+1016952 new connections.
+
+For insert size: 800
+ Total PE links                      2339333
+ Normal PE links on same contig      659057
+ Incorrect oriented PE links         1040
+ PE links of too small insert size   614
+ PE links of too large insert size   0
+ Correct PE links                    1678618
+ Accumulated connections             1144178
+Use contigs longer than 800 to estimate insert size: 
+ PE links               605487
+ Average insert size    452
+ SD                     80
+572089 new connections.
+
+For insert size: 3000
+ Total PE links                      212348
+ Normal PE links on same contig      44338
+ Incorrect oriented PE links         160
+ PE links of too small insert size   5924
+ PE links of too large insert size   0
+ Correct PE links                    161787
+ Accumulated connections             46050
+Use contigs longer than 3000 to estimate insert size: 
+ PE links               41927
+ Average insert size    2524
+ SD                     523
+23025 new connections.
+
+For insert size: 5500
+ Total PE links                      241206
+ Normal PE links on same contig      17386
+ Incorrect oriented PE links         559
+ PE links of too small insert size   72
+ PE links of too large insert size   0
+ Correct PE links                    222994
+ Accumulated connections             34076
+Use contigs longer than 5500 to estimate insert size: 
+ PE links               15851
+ Average insert size    4888
+ SD                     749
+17038 new connections.
+
+For insert size: 9000
+ Total PE links                      160302
+ Normal PE links on same contig      4944
+ Incorrect oriented PE links         19921
+ PE links of too small insert size   293
+ PE links of too large insert size   0
+ Correct PE links                    134830
+ Accumulated connections             33330
+Use contigs longer than 9000 to estimate insert size: 
+ PE links               2774
+ Average insert size    6997
+ SD                     2026
+16665 new connections.
+
+All paired-end reads information loaded.
+Time spent on loading paired-end reads information: 12s.
+
+*****************************************************
+Start to construct scaffolds.
+
+***************************
+For insert size: 175
+ Total PE links                183862
+ PE links to masked contigs    173922
+ On same scaffold PE links     0
+Cutoff of PE links to make a reliable connection: 3
+ Active connections    19880
+ Weak connections      16992
+ Weak ratio            85.5%
+0 circles removed.
+Start to remove transitive connection.
+Total contigs                         2555710
+Masked contigs                        2149745
+Remained contigs                      405965
+None-outgoing-connection contigs      403089 (99.291565%)
+Single-outgoing-connection contigs    2864
+Multi-outgoing-connection contigs     0
+Cycle 1
+ Two-outgoing-connection contigs     12
+ Potential transitive connections    0
+ Transitive connections              0
+ Transitive ratio                    0.0%
+Start to linearize sub-graph.
+ Picked sub-graphs          12
+ Connection-conflict        0
+ Significant overlapping    11
+ Eligible                   0
+ Bubble structures          0
+Mask repeats:
+ Puzzles           11
+ Masked contigs    11
+Start to remove transitive connection.
+Total contigs                         2555710
+Masked contigs                        2149767
+Remained contigs                      405943
+None-outgoing-connection contigs      403099 (99.299408%)
+Single-outgoing-connection contigs    2844
+Multi-outgoing-connection contigs     0
+Cycle 1
+ Two-outgoing-connection contigs     0
+ Potential transitive connections    0
+ Transitive connections              0
+Start to linearize sub-graph.
+ Picked sub-graphs          0
+ Connection-conflict        0
+ Significant overlapping    0
+ Eligible                   0
+ Bubble structures          0
+Start to mask puzzles.
+ Masked contigs      0
+ Remained puzzles    0
+Freezing done.
+
+Rank 1
+ Scaffold number                  1401
+ In-scaffold contig number        223404
+ Total scaffold length            513261
+ Average scaffold length          366
+ Filled gap number                250
+ Longest scaffold                 14836
+ Scaffold and singleton number    221986
+ Scaffold and singleton length    35464797
+ Average length                   159
+ N50                              178
+ N90                              89
+
+***************************
+For insert size: 400
+ Total PE links                1016952
+ PE links to masked contigs    926125
+ On same scaffold PE links     0
+Cutoff of PE links to make a reliable connection: 3
+ Active connections    165370
+ Weak connections      90752
+ Weak ratio            54.9%
+2 circles removed.
+Start to remove transitive connection.
+Total contigs                         2555710
+Masked contigs                        2149775
+Remained contigs                      405935
+None-outgoing-connection contigs      323266 (79.634918%)
+Single-outgoing-connection contigs    76462
+Multi-outgoing-connection contigs     315
+Cycle 1
+ Two-outgoing-connection contigs     5892
+ Potential transitive connections    1819
+ Transitive connections              1400
+ Transitive ratio                    23.8%
+Cycle 2
+ Two-outgoing-connection contigs     4234
+ Potential transitive connections    422
+ Transitive connections              4
+ Transitive ratio                    0.1%
+Cycle 3
+ Two-outgoing-connection contigs     4230
+ Potential transitive connections    418
+ Transitive connections              0
+ Transitive ratio                    0.0%
+Start to linearize sub-graph.
+ Picked sub-graphs          3372
+ Connection-conflict        0
+ Significant overlapping    1807
+ Eligible                   0
+ Bubble structures          5
+Mask repeats:
+ Puzzles           1507
+ Masked contigs    1436
+Start to remove transitive connection.
+Total contigs                         2555710
+Masked contigs                        2152657
+Remained contigs                      403053
+None-outgoing-connection contigs      323514 (80.265877%)
+Single-outgoing-connection contigs    79499
+Multi-outgoing-connection contigs     1
+Cycle 1
+ Two-outgoing-connection contigs     39
+ Potential transitive connections    33
+ Transitive connections              27
+ Transitive ratio                    69.2%
+Cycle 2
+ Two-outgoing-connection contigs     12
+ Potential transitive connections    6
+ Transitive connections              0
+ Transitive ratio                    0.0%
+Start to linearize sub-graph.
+ Picked sub-graphs          13
+ Connection-conflict        0
+ Significant overlapping    6
+ Eligible                   0
+ Bubble structures          0
+Start to mask puzzles.
+ Masked contigs      3
+ Remained puzzles    0
+Freezing done.
+
+Rank 2
+ Scaffold number                  29283
+ In-scaffold contig number        223404
+ Total scaffold length            18187564
+ Average scaffold length          621
+ Filled gap number                217
+ Longest scaffold                 14836
+ Scaffold and singleton number    183575
+ Scaffold and singleton length    43670086
+ Average length                   237
+ N50                              404
+ N90                              107
+
+***************************
+For insert size: 800
+ Total PE links                572089
+ PE links to masked contigs    511781
+ On same scaffold PE links     0
+Cutoff of PE links to make a reliable connection: 3
+ Active connections    59146
+ Weak connections      39922
+ Weak ratio            67.5%
+4 circles removed.
+Start to remove transitive connection.
+Total contigs                         2555710
+Masked contigs                        2152671
+Remained contigs                      403039
+None-outgoing-connection contigs      292898 (72.672371%)
+Single-outgoing-connection contigs    100877
+Multi-outgoing-connection contigs     603
+Cycle 1
+ Two-outgoing-connection contigs     8661
+ Potential transitive connections    6381
+ Transitive connections              5373
+ Transitive ratio                    62.0%
+Cycle 2
+ Two-outgoing-connection contigs     2878
+ Potential transitive connections    1124
+ Transitive connections              121
+ Transitive ratio                    4.2%
+Cycle 3
+ Two-outgoing-connection contigs     2746
+ Potential transitive connections    1007
+ Transitive connections              4
+ Transitive ratio                    0.1%
+Cycle 4
+ Two-outgoing-connection contigs     2742
+ Potential transitive connections    1003
+ Transitive connections              0
+ Transitive ratio                    0.0%
+Start to linearize sub-graph.
+ Picked sub-graphs          2095
+ Connection-conflict        1
+ Significant overlapping    1035
+ Eligible                   1
+ Bubble structures          3
+Mask repeats:
+ Puzzles           841
+ Masked contigs    622
+Start to remove transitive connection.
+Total contigs                         2555710
+Masked contigs                        2153921
+Remained contigs                      401789
+None-outgoing-connection contigs      290725 (72.357628%)
+Single-outgoing-connection contigs    110919
+Multi-outgoing-connection contigs     8
+Cycle 1
+ Two-outgoing-connection contigs     137
+ Potential transitive connections    119
+ Transitive connections              43
+ Transitive ratio                    31.4%
+Cycle 2
+ Two-outgoing-connection contigs     92
+ Potential transitive connections    77
+ Transitive connections              0
+ Transitive ratio                    0.0%
+Start to linearize sub-graph.
+ Picked sub-graphs          90
+ Connection-conflict        0
+ Significant overlapping    77
+ Eligible                   0
+ Bubble structures          0
+Start to mask puzzles.
+ Masked contigs      44
+ Remained puzzles    0
+Freezing done.
+
+Rank 3
+ Scaffold number                  35248
+ In-scaffold contig number        223404
+ Total scaffold length            29525396
+ Average scaffold length          837
+ Filled gap number                259
+ Longest scaffold                 14836
+ Scaffold and singleton number    167476
+ Scaffold and singleton length    51738286
+ Average length                   308
+ N50                              680
+ N90                              117
+
+Report from smallScaf: 35246 scaffolds by smallPE.
+***************************
+For insert size: 3000
+ Total PE links                23025
+ PE links to masked contigs    21035
+ On same scaffold PE links     8
+Cutoff of PE links to make a reliable connection: 5
+Report from checkScaf: 0 scaffold segments broken.
+Add large insert size PE links: 20 orientation-conflict links, 2 contigs acrossed by normal links.
+ Active connections    3756
+ Weak connections      20382
+ Weak ratio            542.7%
+2 circles removed.
+Start to remove transitive connection.
+Total contigs                         2555710
+Masked contigs                        2154009
+Remained contigs                      401701
+None-outgoing-connection contigs      307269 (76.491966%)
+Single-outgoing-connection contigs    94416
+Multi-outgoing-connection contigs     0
+Cycle 1
+ Two-outgoing-connection contigs     16
+ Potential transitive connections    15
+ Transitive connections              2
+ Transitive ratio                    12.5%
+Cycle 2
+ Two-outgoing-connection contigs     14
+ Potential transitive connections    13
+ Transitive connections              0
+ Transitive ratio                    0.0%
+Start to linearize sub-graph.
+ Picked sub-graphs          11
+ Connection-conflict        1
+ Significant overlapping    7
+ Eligible                   0
+ Bubble structures          0
+Mask repeats:
+ Puzzles           8
+ Masked contigs    4
+Start to remove transitive connection.
+Total contigs                         2555710
+Masked contigs                        2154017
+Remained contigs                      401693
+None-outgoing-connection contigs      307269 (76.493492%)
+Single-outgoing-connection contigs    94420
+Multi-outgoing-connection contigs     0
+Cycle 1
+ Two-outgoing-connection contigs     4
+ Potential transitive connections    4
+ Transitive connections              0
+ Transitive ratio                    0.0%
+Start to linearize sub-graph.
+ Picked sub-graphs          4
+ Connection-conflict        1
+ Significant overlapping    3
+ Eligible                   0
+ Bubble structures          0
+Start to mask puzzles.
+ Masked contigs      2
+ Remained puzzles    0
+Freezing done.
+
+Rank 4
+ Scaffold number                  26699
+ In-scaffold contig number        223404
+ Total scaffold length            24515673
+ Average scaffold length          918
+ Filled gap number                355
+ Longest scaffold                 14836
+ Scaffold and singleton number    175802
+ Scaffold and singleton length    49079025
+ Average length                   279
+ N50                              624
+ N90                              111
+
+***************************
+For insert size: 5500
+ Total PE links                17038
+ PE links to masked contigs    15569
+ On same scaffold PE links     12
+Cutoff of PE links to make a reliable connection: 5
+Report from checkScaf: 0 scaffold segments broken.
+Add large insert size PE links: 22 orientation-conflict links, 4 contigs acrossed by normal links.
+ Active connections    2748
+ Weak connections      2190
+ Weak ratio            79.7%
+2 circles removed.
+Start to remove transitive connection.
+Total contigs                         2555710
+Masked contigs                        2154021
+Remained contigs                      401689
+None-outgoing-connection contigs      306718 (76.357086%)
+Single-outgoing-connection contigs    94965
+Multi-outgoing-connection contigs     0
+Cycle 1
+ Two-outgoing-connection contigs     6
+ Potential transitive connections    5
+ Transitive connections              5
+ Transitive ratio                    83.3%
+Cycle 2
+ Two-outgoing-connection contigs     1
+ Potential transitive connections    0
+ Transitive connections              0
+ Transitive ratio                    0.0%
+Start to linearize sub-graph.
+ Picked sub-graphs          1
+ Connection-conflict        0
+ Significant overlapping    1
+ Eligible                   0
+ Bubble structures          0
+Mask repeats:
+ Puzzles           1
+ Masked contigs    1
+Start to remove transitive connection.
+Total contigs                         2555710
+Masked contigs                        2154023
+Remained contigs                      401687
+None-outgoing-connection contigs      306717 (76.357216%)
+Single-outgoing-connection contigs    94970
+Multi-outgoing-connection contigs     0
+Cycle 1
+ Two-outgoing-connection contigs     0
+ Potential transitive connections    0
+ Transitive connections              0
+Start to linearize sub-graph.
+ Picked sub-graphs          0
+ Connection-conflict        0
+ Significant overlapping    0
+ Eligible                   0
+ Bubble structures          0
+Start to mask puzzles.
+ Masked contigs      0
+ Remained puzzles    0
+Freezing done.
+
+Rank 5
+ Scaffold number                  26684
+ In-scaffold contig number        223404
+ Total scaffold length            25839681
+ Average scaffold length          968
+ Filled gap number                355
+ Longest scaffold                 16586
+ Scaffold and singleton number    175526
+ Scaffold and singleton length    50360788
+ Average length                   286
+ N50                              659
+ N90                              112
+
+***************************
+For insert size: 9000
+ Total PE links                16665
+ PE links to masked contigs    15620
+ On same scaffold PE links     10
+Cutoff of PE links to make a reliable connection: 5
+Report from checkScaf: 0 scaffold segments broken.
+Add large insert size PE links: 28 orientation-conflict links, 6 contigs acrossed by normal links.
+ Active connections    1970
+ Weak connections      1698
+ Weak ratio            86.2%
+2 circles removed.
+Start to remove transitive connection.
+Total contigs                         2555710
+Masked contigs                        2154023
+Remained contigs                      401687
+None-outgoing-connection contigs      306449 (76.290497%)
+Single-outgoing-connection contigs    95237
+Multi-outgoing-connection contigs     0
+Cycle 1
+ Two-outgoing-connection contigs     1
+ Potential transitive connections    1
+ Transitive connections              1
+ Transitive ratio                    100.0%
+Cycle 2
+ Two-outgoing-connection contigs     0
+ Potential transitive connections    0
+ Transitive connections              0
+Start to linearize sub-graph.
+ Picked sub-graphs          0
+ Connection-conflict        0
+ Significant overlapping    0
+ Eligible                   0
+ Bubble structures          0
+Mask repeats:
+ Puzzles           0
+ Masked contigs    0
+Start to remove transitive connection.
+Total contigs                         2555710
+Masked contigs                        2154023
+Remained contigs                      401687
+None-outgoing-connection contigs      306449 (76.290497%)
+Single-outgoing-connection contigs    95238
+Multi-outgoing-connection contigs     0
+Cycle 1
+ Two-outgoing-connection contigs     0
+ Potential transitive connections    0
+ Transitive connections              0
+Start to linearize sub-graph.
+ Picked sub-graphs          0
+ Connection-conflict        0
+ Significant overlapping    0
+ Eligible                   0
+ Bubble structures          0
+Non-strict linearization.
+Start to linearize sub-graph.
+ Picked sub-graphs          0
+ Connection-conflict        0
+ Significant overlapping    0
+ Eligible                   0
+ Bubble structures          0
+Start to mask puzzles.
+ Masked contigs      0
+ Remained puzzles    0
+Freezing done.
+
+Recover contigs.
+ Total recovered contigs    993
+ Single-route cases         846
+ Multi-route cases          121
+
+All links loaded.
+Time spent on constructing scaffolds: 10s.
+
+The final rank
+
+*******************************
+ Scaffold number                  26708
+ In-scaffold contig number        223404
+ Total scaffold length            26982575
+ Average scaffold length          1010
+ Filled gap number                377
+ Longest scaffold                 19200
+ Scaffold and singleton number    175159
+ Scaffold and singleton length    51462292
+ Average length                   293
+ N50                              686
+ N90                              113
+ Weak points                      0
+
+*******************************
+1000 scaffolds processed.
+2000 scaffolds processed.
+3000 scaffolds processed.
+4000 scaffolds processed.
+5000 scaffolds processed.
+6000 scaffolds processed.
+7000 scaffolds processed.
+8000 scaffolds processed.
+9000 scaffolds processed.
+10000 scaffolds processed.
+11000 scaffolds processed.
+12000 scaffolds processed.
+13000 scaffolds processed.
+14000 scaffolds processed.
+15000 scaffolds processed.
+16000 scaffolds processed.
+17000 scaffolds processed.
+18000 scaffolds processed.
+19000 scaffolds processed.
+20000 scaffolds processed.
+21000 scaffolds processed.
+22000 scaffolds processed.
+23000 scaffolds processed.
+24000 scaffolds processed.
+25000 scaffolds processed.
+26000 scaffolds processed.
+
+Done with 26708 scaffolds, 0 gaps finished, 48903 gaps overall.
+
+Overall time spent on constructing scaffolds: 35m.
+Time for the whole pipeline: 62m.

@@ -1,0 +1,178 @@
+#Login to UPPMAX
+ssh -AX sarasl@rackham.uppmax.uu.se
+
+#Create directories
+mkdir git
+cd git 
+git clone https://github.com/Sara-SL/GenomeAnalysis.git
+cd GenomeAnalysis
+mkdir Data
+cd Data
+mkdir wgs_data
+mkdir rna_seq_data
+cd rna_seq_data
+mkdir raw
+mkdir trimmed
+
+
+#Rename Data
+cd GenomeAnalysis/Data/wgs_data
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/wgs_data/sel4_SRR5819794.trim_1P.fastq.gz bat_400.trim_1P.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/wgs_data/sel4_SRR5819794.trim_1U.fastq.gz bat_400.trim_1U.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/wgs_data/sel4_SRR5819794.trim_2P.fastq.gz bat_400.trim_2P.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/wgs_data/sel4_SRR5819794.trim_2U.fastq.gz bat_400.trim_2U.fastq.gz
+
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/wgs_data/sel4_SRR5819795.trim_1P.fastq.gz bat_800.trim_1P.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/wgs_data/sel4_SRR5819795.trim_1U.fastq.gz bat_800.trim_1U.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/wgs_data/sel4_SRR5819795.trim_2P.fastq.gz bat_800.trim_2P.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/wgs_data/sel4_SRR5819795.trim_2U.fastq.gz bat_800.trim_2U.fastq.gz
+
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/wgs_data/sel4_SRR5819796.trim_1P.fastq.gz bat_8to10kb.trim_1P.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/wgs_data/sel4_SRR5819796.trim_1U.fastq.gz bat_8to10kb.trim_1U.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/wgs_data/sel4_SRR5819796.trim_2P.fastq.gz bat_8to10kb.trim_2P.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/wgs_data/sel4_SRR5819796.trim_2U.fastq.gz bat_8to10kb.trim_2U.fastq.gz
+
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/wgs_data/sel4_SRR5819797.trim_1P.fastq.gz bat_175.trim_1P.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/wgs_data/sel4_SRR5819797.trim_1U.fastq.gz bat_175.trim_1U.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/wgs_data/sel4_SRR5819797.trim_2P.fastq.gz bat_175.trim_2P.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/wgs_data/sel4_SRR5819797.trim_2U.fastq.gz bat_175.trim_2U.fastq.gz
+
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/wgs_data/sel4_SRR5819798.trim_1P.fastq.gz bat_2to4kb.trim_1P.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/wgs_data/sel4_SRR5819798.trim_1U.fastq.gz bat_2to4kb.trim_1U.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/wgs_data/sel4_SRR5819798.trim_2P.fastq.gz bat_2to4kb.trim_2P.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/wgs_data/sel4_SRR5819798.trim_2U.fastq.gz bat_2to4kb.trim_2U.fastq.gz
+
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/wgs_data/sel4_SRR5819799.trim_1P.fastq.gz bat_5to6kb.trim_1P.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/wgs_data/sel4_SRR5819799.trim_1U.fastq.gz bat_5to6kb.trim_1U.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/wgs_data/sel4_SRR5819799.trim_2P.fastq.gz bat_5to6kb.trim_2P.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/wgs_data/sel4_SRR5819799.trim_2U.fastq.gz bat_5to6kb.trim_2U.fastq.gz
+
+cd ../rna_seq_data/raw
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/raw/sel4_SRR1719266.1.fastq.gz HL_CS17_45.1.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/raw/sel4_SRR1719266.2.fastq.gz HL_CS17_45.2.fastq.gz
+
+cd ../trimmed
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719013.trim_1P.fastq.gz FL_CS15_13.trim_1P.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719013.trim_1U.fastq.gz FL_CS15_13.trim_1U.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719013.trim_2P.fastq.gz FL_CS15_13.trim_2P.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719013.trim_2U.fastq.gz FL_CS15_13.trim_2U.fastq.gz
+
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719014.trim_1P.fastq.gz FL_CS15_16.trim_1P.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719014.trim_1U.fastq.gz FL_CS15_16.trim_1U.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719014.trim_2P.fastq.gz FL_CS15_16.trim_2P.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719014.trim_2U.fastq.gz FL_CS15_16.trim_2U.fastq.gz
+
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719015.trim_1P.fastq.gz FL_CS15_58.trim_1P.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719015.trim_1U.fastq.gz FL_CS15_58.trim_1U.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719015.trim_2P.fastq.gz FL_CS15_58.trim_2P.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719015.trim_2U.fastq.gz FL_CS15_58.trim_2U.fastq.gz
+
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719016.trim_1P.fastq.gz HL_CS15_13.trim_1P.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719016.trim_1U.fastq.gz HL_CS15_13.trim_1U.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719016.trim_2P.fastq.gz HL_CS15_13.trim_2P.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719016.trim_2U.fastq.gz HL_CS15_13.trim_2U.fastq.gz
+
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719017.trim_1P.fastq.gz HL_CS15_16.trim_1P.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719017.trim_1U.fastq.gz HL_CS15_16.trim_1U.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719017.trim_2P.fastq.gz HL_CS15_16.trim_2P.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719017.trim_2U.fastq.gz HL_CS15_16.trim_2U.fastq.gz
+
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719018.trim_1P.fastq.gz HL_CS15_58.trim_1P.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719018.trim_1U.fastq.gz HL_CS15_58.trim_1U.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719018.trim_2P.fastq.gz HL_CS15_58.trim_2P.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719018.trim_2U.fastq.gz HL_CS15_58.trim_2U.fastq.gz
+
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719204.trim_1P.fastq.gz FL_CS16_21.trim_1P.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719204.trim_1U.fastq.gz FL_CS16_21.trim_1U.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719204.trim_2P.fastq.gz FL_CS16_21.trim_2P.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719204.trim_2U.fastq.gz FL_CS16_21.trim_2U.fastq.gz
+
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719206.trim_1P.fastq.gz FL_CS16_43.trim_1P.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719206.trim_1U.fastq.gz FL_CS16_43.trim_1U.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719206.trim_2P.fastq.gz FL_CS16_43.trim_2P.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719206.trim_2U.fastq.gz FL_CS16_43.trim_2U.fastq.gz
+
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719207.trim_1P.fastq.gz FL_CS16_49.trim_1P.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719207.trim_1U.fastq.gz FL_CS16_49.trim_1U.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719207.trim_2P.fastq.gz FL_CS16_49.trim_2P.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719207.trim_2U.fastq.gz FL_CS16_49.trim_2U.fastq.gz
+
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719208.trim_1P.fastq.gz FL_CS17_33.trim_1P.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719208.trim_1U.fastq.gz FL_CS17_33.trim_1U.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719208.trim_2P.fastq.gz FL_CS17_33.trim_2P.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719208.trim_2U.fastq.gz FL_CS17_33.trim_2U.fastq.gz
+
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719209.trim_1P.fastq.gz FL_CS17_42.trim_1P.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719209.trim_1U.fastq.gz FL_CS17_42.trim_1U.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719209.trim_2P.fastq.gz FL_CS17_42.trim_2P.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719209.trim_2U.fastq.gz FL_CS17_42.trim_2U.fastq.gz
+
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719211.trim_1P.fastq.gz FL_CS17_45.trim_1P.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719211.trim_1U.fastq.gz FL_CS17_45.trim_1U.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719211.trim_2P.fastq.gz FL_CS17_45.trim_2P.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719211.trim_2U.fastq.gz FL_CS17_45.trim_2U.fastq.gz
+
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719212.trim_1P.fastq.gz HL_CS16_21.trim_1P.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719212.trim_1U.fastq.gz HL_CS16_21.trim_1U.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719212.trim_2P.fastq.gz HL_CS16_21.trim_2P.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719212.trim_2U.fastq.gz HL_CS16_21.trim_2U.fastq.gz
+
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719213.trim_1P.fastq.gz HL_CS17_33.trim_1P.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719213.trim_1U.fastq.gz HL_CS17_33.trim_1U.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719213.trim_2P.fastq.gz HL_CS17_33.trim_2P.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719213.trim_2U.fastq.gz HL_CS17_33.trim_2U.fastq.gz
+
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719214.trim_1P.fastq.gz HL_CS16_43.trim_1P.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719214.trim_1U.fastq.gz HL_CS16_43.trim_1U.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719214.trim_2P.fastq.gz HL_CS16_43.trim_2P.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719214.trim_2U.fastq.gz HL_CS16_43.trim_2U.fastq.gz
+
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719241.trim_1P.fastq.gz HL_CS17_42.trim_1P.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719241.trim_1U.fastq.gz HL_CS17_42.trim_1U.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719241.trim_2P.fastq.gz HL_CS17_42.trim_2P.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719241.trim_2U.fastq.gz HL_CS17_42.trim_2U.fastq.gz
+
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719242.trim_1P.fastq.gz HL_CS16_49.trim_1P.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719242.trim_1U.fastq.gz HL_CS16_49.trim_1U.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719242.trim_2P.fastq.gz HL_CS16_49.trim_2P.fastq.gz
+ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719242.trim_2U.fastq.gz HL_CS16_49.trim_2U.fastq.gz
+
+#Create scripts for quality check
+cd /home/sarasl/git/GenomeAnalysis/
+mkdir Scripts
+cd Scripts
+touch fastqc_wgs.sh
+touch fastqc_rna_seq_raw.sh
+touch fastqc_rna_seq_trimmed.sh
+touch fastqc_HL_CS17_45.sh
+
+#Quality check of given data
+salloc -A g2020008 -p core -n 2 -t 02:00:00
+module load bioinfo-tools
+module load FastQC
+cd git/GenomAnalysis/Scripts/
+sh fastqc_wgs.sh
+sh fastqc_rna_seq_raw.sh
+sh fastqc_rna_seq_trimmed.sh
+
+#Trim Raw data 
+module load trimmomatic
+java -jar $TRIMMOMATIC_HOME/trimmomatic.jar PE -trimlog rna_seq_trimLogFile HL_CS17_45.1.fastq.gz HL_CS17_45.2.fastq.gz HL_CS17_45.trimmed_1P.fastq.gz HL_CS17_45.trimmed_1U.fastq.gz HL_CS17_45.trimmed_2P.fastq.gz HL_CS17_45.trimmed_2U.fastq.gz ILLUMINACLIP:$TRIMMOMATIC_HOME/adapters/TruSeq3-PE.fa:2:30:10 LEADING:17 TRAILING:17
+
+#Quality check trimmed data 
+cd git/GenomAnalysis/Scripts/
+touch fastqc_HL_CS17_45.sh
+sh fastqc_HL_CS17_45.sh
+
+#Genome assembly 
+mkdir 2_genome_assembly
+touch SOAPdenovo.config
+nano SOAPdenovo.config
+cd ../Scripts/
+touch SOAPdenovo_batch_job.sh
+nano SOAPdenovo_batch_job.sh
+sbatch SOAPdenovo_batch_job.sh
+
+
+
+
