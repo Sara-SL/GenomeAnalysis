@@ -2,7 +2,7 @@
 #SBATCH -A g2020008
 #SBATCH -p core
 #SBATCH -n 2
-#SBATCH -t 00:30:00
+#SBATCH -t 04:00:00
 #SBATCH --reservation=g2020008_17
 #SBATCH -J Assembly_evaluation_1
 #SBATCH --mail-type=ALL
