@@ -173,6 +173,50 @@ touch SOAPdenovo_batch_job.sh
 nano SOAPdenovo_batch_job.sh
 sbatch SOAPdenovo_batch_job.sh
 
+#Evaluate assembly 
+cd /home/sarasl/git/GenomeAnalysis/Data/
+mkdir scaffold
+cp /proj/g2020008/nobackup/private/2_Eckalbar_2016/additional_data/sel4_NW_015503979.fna.gz /home/sarasl/git/GenomeAnalysis/Data/scaffold
+gunzip scaffold/sel4_NW_015503979.fna.gz
+
+cd ../2_genome_assembly
+mkdir Evaluation
+salloc -A g2020008 -p core -n 1 -t 00:30:00 --reservation=g2020008_17
+module load bioinfo-tools
+module load MUMmer
+nucmer -p Nucmer_contig /home/sarasl/git/GenomeAnalysis/Data/scaffold/sel4_NW_015503979.fna /home/sarasl/git/GenomeAnalysis/2_genome_assembly/SOAPdenovo_output_K49.contig
+
+mkdir MUMmerplot_contig
+cd MUMmerplot_contig
+touch ../../../Scripts/MUMmer_contig_batch_job.sh
+nano ../../../Scripts/MUMmer_contig_batch_job.sh
+sbatch ../../../Scripts/MUMmer_contig_batch_job.sh
+
+mkdir MUMmerplot_contig_100bp
+cd MUMmerplot_contig_100bp
+touch ../../../Scripts/MUMmer_contig_100bp_batch_job.sh
+nano ../../../Scripts/MUMmer_contig__100bp_batch_job.sh
+sbatch ../../../Scripts/MUMmer_contig_100bp_batch_job.sh
+
+mkdir MUMmerplot_contig_1kb
+cd MUMmerplot_contig_1kb
+touch ../../../Scripts/MUMmer_contig_1kb_batch_job.sh
+nano ../../../Scripts/MUMmer_contig_1kb_batch_job.sh
+sbatch ../../../Scripts/MUMmer_contig_1kb_batch_job.sh
+
+mkdir MUMmerplot_scafSeq_1kb
+cd MUMmerplot_scafSeq_1kb
+touch ../../../Scripts/MUMmer_scafSeq_1kb_batch_job.sh
+nano ../../../Scripts/MUMmer_scafSeq_1kb_batch_job.sh
+sbatch ../../../Scripts/MUMmer_scafSeq_1kb_batch_job.sh
+
+mkdir MUMmerplot_scafSeq_1kb_-m
+cd MUMmerplot_scafSeq_1kb_-m
+touch ../../../Scripts/MUMmer_scafSeq_1kb_-m_batch_job.sh
+nano ../../../Scripts/MUMmer_scafSeq_1kb_-m_batch_job.sh
+sbatch ../../../Scripts/MUMmer_scafSeq_1kb_-m_batch_job.sh
+#gave empty delta-filter file
+
 
 
 
