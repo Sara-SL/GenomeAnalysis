@@ -217,6 +217,45 @@ nano ../../../Scripts/MUMmer_scafSeq_1kb_-m_batch_job.sh
 sbatch ../../../Scripts/MUMmer_scafSeq_1kb_-m_batch_job.sh
 #gave empty delta-filter file
 
+mkdir MUMmerplot_scafSeq_1kb_layout_filter
+cd MUMmerplot_scafSeq_1kb_-m
+touch ../../../Scripts/MUMmer_scafSeq_1kb_layout_filter_batch_job.sh
+nano ../../../Scripts/MUMmer_scafSeq_1kb_layout_filter_batch_job.sh
+sbatch ../../../Scripts/MUMmer_scafSeq_1kb_layout_filter_batch_job.sh
+
+# created pythonscript to remove short contigs
+module load bioinfo-tools
+python3 /home/sarasl/git/GenomeAnalysis/Scripts/remove_short_contigs.py  /home/sarasl/git/GenomeAnalysis/2_genome_assembly/SOAPdenovo_output_K49.contig
+
+mv /home/sarasl/git/GenomeAnalysis/Scripts/remove_short_contigs.py Cleaned_files/
+mv /home/sarasl/git/GenomeAnalysis/2_genome_assembly/SOAPdenovo_output_K49.contig Cleaned_files/
+mv /home/sarasl/git/GenomeAnalysis/2_genome_assembly/SOAPdenovo_output_K49.scafSeq Cleaned_files/
+python3 remove_short_contigs.py SOAPdenovo_output_K49.contig
+
+mkdir 3_rna_assembly
+cd 3_rna_assembly/
+touch ../Scripts/bowtie_index_batch_job.sh
+nano ../Scripts/bowtie_index_batch_job.sh
+sbatch --reservation=g2020008_28 ../Scripts/bowtie_index_batch_job.sh
+
+touch ../Scripts/tophat_batch_job
+nano ../Scripts/tophat_batch_job
+sbatch --reservation=g2020008_28 ../Scripts/tophat_batch_job
+
+mkdir trinity
+cd trinity/
+touch ../../Scripts/trinity_batch_job.sh
+nano ../../Scripts/trinity_batch_job.sh
+sbatch --reservation=g2020008_29 ../../Scripts/trinity_batch_job.sh
+
+cd ../
+mkdir Evaluation
+cd Evaluation
+touch ../../Scripts/MUMmer_rna_batch_job.sh
+nano ../../Scripts/MUMmer_rna_batch_job.sh
 
 
 
+
+	
+	
