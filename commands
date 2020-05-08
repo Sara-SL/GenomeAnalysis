@@ -253,9 +253,76 @@ mkdir Evaluation
 cd Evaluation
 touch ../../Scripts/MUMmer_rna_batch_job.sh
 nano ../../Scripts/MUMmer_rna_batch_job.sh
+sbatch --reservation=g2020008_29 ../../Scripts/MUMmer_rna_batch_job.sh
 
+module load bioinfo-tools
+module load marker/3.01.1-beta
+maker -CTL
+nano maker_opts.ctl
+	#changed:
+	#genome=/home/sarasl/git/GenomeAnalysis/2_genome_assembly/Cleaned_files/clear_SOAPdenovo_output_K49.contig
+	#est=/home/sarasl/git/GenomeAnalysis/3_rna_assembly/trinity_out_dir/Trinity-GG.fasta
+	#est2genome=1
+touch ../../Scripts/maker_batch_script.sh
+nano ../../Scripts/maker_batch_script.sh
+sbatch ../../Scripts/maker_batch_script.sh
 
-
-
+cd clear_SOAPdenovo_output_K49.maker.output
+module load bioinfo-tools
+module load maker/3.01.1-beta
+gff3_merge -d clear_SOAPdenovo_output_K49_master_datastore_index.log
+maker2zff clear_SOAPdenovo_output_K49.all.gff
+fathom genome.ann genome.dna -validate > snap_validate_output.txt
+	#output: 24 genes, 24 OK, 15 warnings, 0 errors
+cat snap_validate_output.txt | grep "warning"
+	# 2554373: MODEL16 423 1578 2 - warnings(1): cds:incomplete
+	# 2554761: MODEL10 1865 2032 1 + warnings(1): cds:incomplete
+	# 2554827: MODEL8 665 1437 3 + warnings(1): cds:incomplete
+	# 2554881: MODEL9 1507 1981 2 - warnings(1): cds:incomplete
+	# 2555265: MODEL13 508 2444 2 - warnings(1): cds:incomplete
+	# 2555313: MODEL11 450 1468 2 - warnings(1): cds:incomplete
+	# 2555485: MODEL0 1132 3255 2 + warnings(1): cds:incomplete
+	# 2555599: MODEL12 219 3223 12 + warnings(1): cds:incomplete
+	# 2555613: MODEL17 1165 6486 10 - warnings(1): cds:incomplete
+	# 2555645: MODEL21 650 7279 12 + warnings(1): cds:incomplete
+	# 2555653: MODEL14 1902 4734 3 - warnings(1): cds:incomplete
+	# 2555669: MODEL1 148 6973 5 + warnings(1): exon-1:short(4)
+	# 2555695: MODEL2 4736 11341 7 - warnings(1): cds:incomplete
+	# 2555705: MODEL5 5073 6544 2 + warnings(1): cds:incomplete
+	# 2555705: MODEL6 7547 8290 2 + warnings(1): cds:incomplete
+fathom genome.ann genome.dna -categorize 1000
+fathom uni.ann uni.dna -export 1000 -plus 
+forge export.ann export.dna
+hmm-assembler.pl my_genome . > my_genome.hmm
+	#changed:
+	#snaphmm=/home/sarasl/git/GenomeAnalysis/4_annotation/Maker2/clear_SOAPdenovo_output_K49.maker.output/my_genome.hmm
+	#est2genome=0 
+sbatch ../../../Scripts/maker_batch_script.sh
 	
-	
+#repeat step 2 & 3
+gff3_merge -d clear_SOAPdenovo_output_K49_master_datastore_index.log
+maker2zff clear_SOAPdenovo_output_K49.all.gff
+fathom genome.ann genome.dna -categorize 1000
+fathom uni.ann uni.dna -export 1000 -plus 
+forge export.ann export.dna
+hmm-assembler.pl my_genome . > my_genome.hmm
+sbatch ../../../Scripts/maker_batch_script.sh
+
+touch zff2augustus_gbk.pl
+nano zff2augustus_gbk.pl
+	#pasted in script from https://github.com/hyphaltip/genome-scripts/edit/master/gene_prediction/zff2augustus_gbk.pl
+module load augustus
+perl zff2augustus_gbk.pl > augustus.gbk
+
+
+
+
+
+
+
+
+
+
+
+
+
