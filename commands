@@ -137,6 +137,8 @@ ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/
 ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719242.trim_2P.fastq.gz HL_CS16_49.trim_2P.fastq.gz
 ln -s /proj/g2020008/nobackup/private/2_Eckalbar_2016/sel4/rna_seq_data/trimmed/sel4_SRR1719242.trim_2U.fastq.gz HL_CS16_49.trim_2U.fastq.gz
 
+
+### Preprocessing
 #Create scripts for quality check
 cd /home/sarasl/git/GenomeAnalysis/
 mkdir Scripts
@@ -164,7 +166,8 @@ cd git/GenomAnalysis/Scripts/
 touch fastqc_HL_CS17_45.sh
 sh fastqc_HL_CS17_45.sh
 
-#Genome assembly 
+
+### DNA assembly 
 mkdir 2_genome_assembly
 touch SOAPdenovo.config
 nano SOAPdenovo.config
@@ -232,6 +235,8 @@ mv /home/sarasl/git/GenomeAnalysis/2_genome_assembly/SOAPdenovo_output_K49.conti
 mv /home/sarasl/git/GenomeAnalysis/2_genome_assembly/SOAPdenovo_output_K49.scafSeq Cleaned_files/
 python3 remove_short_contigs.py SOAPdenovo_output_K49.contig
 
+
+### RNA assembly 
 mkdir 3_rna_assembly
 cd 3_rna_assembly/
 touch ../Scripts/bowtie_index_batch_job.sh
@@ -255,6 +260,12 @@ touch ../../Scripts/MUMmer_rna_batch_job.sh
 nano ../../Scripts/MUMmer_rna_batch_job.sh
 sbatch --reservation=g2020008_29 ../../Scripts/MUMmer_rna_batch_job.sh
 
+
+
+### Annotation
+
+# Structional annotation
+# step 1
 module load bioinfo-tools
 module load marker/3.01.1-beta
 maker -CTL
@@ -267,6 +278,7 @@ touch ../../Scripts/maker_batch_script.sh
 nano ../../Scripts/maker_batch_script.sh
 sbatch ../../Scripts/maker_batch_script.sh
 
+#step 2
 cd clear_SOAPdenovo_output_K49.maker.output
 module load bioinfo-tools
 module load maker/3.01.1-beta
@@ -297,26 +309,98 @@ hmm-assembler.pl my_genome . > my_genome.hmm
 	#changed:
 	#snaphmm=/home/sarasl/git/GenomeAnalysis/4_annotation/Maker2/clear_SOAPdenovo_output_K49.maker.output/my_genome.hmm
 	#est2genome=0 
+	
+#step 3
 sbatch ../../../Scripts/maker_batch_script.sh
 	
-#repeat step 2 & 3
+#step 4 
 gff3_merge -d clear_SOAPdenovo_output_K49_master_datastore_index.log
 maker2zff clear_SOAPdenovo_output_K49.all.gff
 fathom genome.ann genome.dna -categorize 1000
 fathom uni.ann uni.dna -export 1000 -plus 
 forge export.ann export.dna
 hmm-assembler.pl my_genome . > my_genome.hmm
+
+#step 5
 sbatch ../../../Scripts/maker_batch_script.sh
 
+#step 6
 touch zff2augustus_gbk.pl
 nano zff2augustus_gbk.pl
 	#pasted in script from https://github.com/hyphaltip/genome-scripts/edit/master/gene_prediction/zff2augustus_gbk.pl
 module load augustus
-perl zff2augustus_gbk.pl > augustus.gbk
+perl zff2augustus_gbk.pl > augustus.gbk 
+touch randomSplit.pl
+nano randomSplit.pl
+	#copy pasted the script at https://github.com/Gaius-Augustus/Augustus/blob/master/scripts/randomSplit.pl
+touch new_species.pl
+nano new_species.pl
+touch optimize_augustus.pl
+nano optimize_augustus.pl
+touch ../../../Scripts/augustus_batch_script.sh
+nano ../../../Scripts/augustus_batch_script.sh
+cd ..
+cp -r clear_SOAPdenovo_output_K49.maker.output clear_SOAPdenovo_output_K49.maker_ROUND2.output #forgot to copy the first round 
+cd clear_SOAPdenovo_output_K49.maker.output
+sbatch --reservation=g2020008_08 ../../../Scripts/augustus_batch_script.sh
+
+# step 7
+nano ../maker_opts.ctl
+	#changed 
+	#augustus_species=my_species
+	#keep_preds=1
+sbatch ../../../Scripts/maker_batch_script.sh
+cd ..
+cp -r clear_SOAPdenovo_output_K49.maker.output clear_SOAPdenovo_output_K49.maker.ROUND3
+
+# step 8
+touch gmes_petap.pl
+nano gmes_petap.pl
+	#insert script from ???
+gmes_petap.pl -ES -cores 4 -sequence /home/sarasl/git/GenomeAnalysis/2_genome_assembly/Cleaned_files/clear_SOAPdenovo_output_K49.contig
 
 
 
 
+
+########### Prepping  ########
+
+### Functional annotation 
+
+# eggNOG - online tool 
+# add, commit, push the outputfile from maker (might need to convert the file to FASTA) 
+# pull on my local computer
+# go to eggNOG online - choose outputfile from maker as inputfile
+
+#### Differential analysis 
+
+# Align RNA reads to RNA assembly 
+mkdir 5_differential_analysis
+cd 5_differential_analysis
+mkdir tophat
+cd tophat
+touch ../../Scripts/tophat_diffexp_batch_job
+nano ../../Scripts/tophat_diffexp_batch_job
+	# insert 
+	# module load bioinfo-tools
+	# module load tophat
+	#
+	# bowtie2-build -f /home/sarasl/git/GenomeAnalysis/3_rna_assembly/trinity_out_dir/Trinity-GG.fasta bowtie2_index_diffexp
+	# tophat /home/sarasl/git/GenomeAnalysis/5_differential_analysis/tophat/bowtie2_index_diffexp *all the reads*
+sbatch ../../Scripts/tophat_diffexp_batch_job
+
+
+# Htseq
+
+
+
+
+
+
+# my assembled RNA reads: /home/sarasl/git/GenomeAnalysis/3_rna_assembly/trinity_out_dir/Trinity-GG.fasta
+# my assembled DNA reads: /home/sarasl/git/GenomeAnalysis/2_genome_assembly/Cleaned_files/clear_SOAPdenovo_output_K49.contig
+# my reference genome   : /home/sarasl/git/GenomeAnalysis/Data/scaffold/sel4_NW_015503979.fna
+# /path/bowtie_index    : /home/sarasl/git/GenomeAnalysis/3_rna_assembly/bowtie_index_files
 
 
 
