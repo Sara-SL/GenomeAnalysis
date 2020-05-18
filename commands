@@ -267,7 +267,7 @@ sbatch --reservation=g2020008_29 ../../Scripts/MUMmer_rna_batch_job.sh
 # Structional annotation
 # step 1
 module load bioinfo-tools
-module load marker/3.01.1-beta
+module load maker/3.01.1-beta
 maker -CTL
 nano maker_opts.ctl
 	#changed:
@@ -354,10 +354,65 @@ cd ..
 cp -r clear_SOAPdenovo_output_K49.maker.output clear_SOAPdenovo_output_K49.maker.ROUND3
 
 # step 8
-touch gmes_petap.pl
-nano gmes_petap.pl
-	#insert script from ???
-gmes_petap.pl -ES -cores 4 -sequence /home/sarasl/git/GenomeAnalysis/2_genome_assembly/Cleaned_files/clear_SOAPdenovo_output_K49.contig
+touch ../../../Scripts/genemark_batch_job.sh
+nano ../../../Scripts/genemark_batch_job.sh
+sbatch ../../../Scripts/genemark_batch_job.sh
+
+
+## got bad result reded the Maker2 pipleine with the sel4_NW_015503979.fna file instead 
+## and with protein sequence from ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/001/595/765/GCF_001595765.1_Mnat.v1
+## but other students run before me and still didnät work so the TA were going to figure out 
+## if they could solve it 
+## in the mean time started on Htseq with the original scaffold and original annotation 
+
+
+
+#### Differential expression analysis ####
+
+####### Htseq ######
+
+mkdir 5_differential_analysis
+cd 5_differential_analysis
+
+cp /proj/g2020008/2_Eckalbar_2016/additional_data/GCF_001595765.1_Mnat.v1_genomic.gff /home/sarasl/git/GenomeAnalysis/Data/GCF_001595765.1_Mnat.v1_genomic.gff
+
+#to see how the bam file is sorted:
+module load samtools
+samtools view /home/sarasl/git/GenomeAnalysis/3_rna_assembly/tophat_out/accepted_hits.bam > accepted_hits_samtools_view.bam
+nano accepted_hits_samtools_view.bam
+	# saw that bam file was sorted after position 
+
+touch ../Scripts/htseq_batch_job.sh
+nano ../Scripts/htseq_batch_job.sh
+sbatch ../Scripts/htseq_batch_job.sh			
+	# got error: "Sequence of paired-end alignments expected, but got single-end alignment."
+
+samtools view -bf 1 /home/sarasl/git/GenomeAnalysis/3_rna_assembly/tophat_out/accepted_hits.bam > accepted_hits.paired-end.bam
+samtools view -bF 1 /home/sarasl/git/GenomeAnalysis/3_rna_assembly/tophat_out/accepted_hits.bam > accepted_hits.single-end.bam
+touch ../Scripts/htseq_PE_batch_job.sh
+nano ../Scripts/htseq_PE_batch_job.sh
+sbatch ../Scripts/htseq_PE_batch_job.sh
+touch ../Scripts/htseq_SE_batch_job.sh
+nano ../Scripts/htseq_SE_batch_job.sh
+sbatch ../Scripts/htseq_SE_batch_job.sh
+
+samtools view accepted_hits.single-end.bam | wc -l
+samtools view accepted_hits.paired-end.bam | wc -l
+	#since the the paired end are by far the majority, I just ignore the single end reads 
+
+tail slurm-14360869.out
+	#id99995	0
+	#id99996	0
+	#id99997	0
+	#id99998	0
+	#id99999	0
+	#__no_feature	1554043
+	#__ambiguous	1926500
+	#__too_low_aQual	0
+	#__not_aligned	0
+	#__alignment_not_unique	137800
+
+#got no counts for the features
 
 
 
@@ -371,29 +426,6 @@ gmes_petap.pl -ES -cores 4 -sequence /home/sarasl/git/GenomeAnalysis/2_genome_as
 # add, commit, push the outputfile from maker (might need to convert the file to FASTA) 
 # pull on my local computer
 # go to eggNOG online - choose outputfile from maker as inputfile
-
-#### Differential analysis 
-
-# Align RNA reads to RNA assembly 
-mkdir 5_differential_analysis
-cd 5_differential_analysis
-mkdir tophat
-cd tophat
-touch ../../Scripts/tophat_diffexp_batch_job
-nano ../../Scripts/tophat_diffexp_batch_job
-	# insert 
-	# module load bioinfo-tools
-	# module load tophat
-	#
-	# bowtie2-build -f /home/sarasl/git/GenomeAnalysis/3_rna_assembly/trinity_out_dir/Trinity-GG.fasta bowtie2_index_diffexp
-	# tophat /home/sarasl/git/GenomeAnalysis/5_differential_analysis/tophat/bowtie2_index_diffexp *all the reads*
-sbatch ../../Scripts/tophat_diffexp_batch_job
-
-
-# Htseq
-
-
-
 
 
 
