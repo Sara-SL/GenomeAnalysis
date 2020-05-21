@@ -44,3 +44,4 @@ tophat -o HL_CS17_33_out /home/sarasl/git/GenomeAnalysis/3_rna_assembly/bowtie_i
 
 tophat -o HL_CS17_42_out /home/sarasl/git/GenomeAnalysis/3_rna_assembly/bowtie_index_files/bowtie2_index /home/sarasl/git/GenomeAnalysis/Data/rna_seq_data/trimmed/HL_CS17_42.trim_1P.fastq.gz,/home/sarasl/git/GenomeAnalysis/Data/rna_seq_data/trimmed/HL_CS17_42.trim_1U.fastq.gz,/home/sarasl/git/GenomeAnalysis/Data/rna_seq_data/trimmed/HL_CS17_42.trim_2U.fastq.gz /home/sarasl/git/GenomeAnalysis/Data/rna_seq_data/trimmed/HL_CS17_42.trim_2P.fastq.gz
 
+tophat -o HL_CS17_45_out /home/sarasl/git/GenomeAnalysis/3_rna_assembly/bowtie_index_files/bowtie2_index /home/sarasl/git/GenomeAnalysis/Data/rna_seq_data/trimmed/HL_CS17_45.trimmed_1P.fastq.gz,/home/sarasl/git/GenomeAnalysis/Data/rna_seq_data/trimmed/HL_CS17_45.trimmed_1U.fastq.gz  /home/sarasl/git/GenomeAnalysis/Data/rna_seq_data/trimmed/HL_CS17_45.trimmed_2P.fastq.gz
