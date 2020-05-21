@@ -1,11 +1,5 @@
-#	2_genome_assembly/SOAPdenovo_output_K49.Arc
-#	2_genome_assembly/SOAPdenovo_output_K49.contig
-#	2_genome_assembly/SOAPdenovo_output_K49.edge.gz
-#	2_genome_assembly/SOAPdenovo_output_K49.links
-#	2_genome_assembly/SOAPdenovo_output_K49.path
-#	2_genome_assembly/SOAPdenovo_output_K49.preArc
-#	2_genome_assembly/SOAPdenovo_output_K49.readInGap.gz
-#	2_genome_assembly/SOAPdenovo_output_K49.readOnContig.gz
-#	2_genome_assembly/SOAPdenovo_output_K49.scafSeq
-
-2_genome_assembly/SOAPdenovo_output_K49.updated.edge
+/2_genome_assembly/*
+/3_rna_assembly/*
+/4_annotation/*
+/5_differential_expression/*
+/Data/*
