@@ -412,20 +412,27 @@ tail slurm-14360869.out
 	#__not_aligned	0
 	#__alignment_not_unique	137800
 
-#got no counts for the features
+#to count features 
+touch ../Scripts/feature_count.py
+nano ../Scripts/feature_count.py
+module load python
+python ../Scripts/feature_count.py
+	#1159003
 
 
-
-
-
-########### Prepping  ########
 
 ### Functional annotation 
 
-# eggNOG - online tool 
-# add, commit, push the outputfile from maker (might need to convert the file to FASTA) 
-# pull on my local computer
-# go to eggNOG online - choose outputfile from maker as inputfile
+#EggNOG online
+#Used the Trinity-GG.fasta file
+#Taxonomic Scope: Auto adjust per query (RECOMMENDED)
+#Orthology restrictions: Transfer annotations from one-to-one orthology only
+
+
+
+
+
+
 
 
 
