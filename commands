@@ -430,18 +430,7 @@ python ../Scripts/feature_count.py
 
 
 
-
-
-
-
-
-
-# my assembled RNA reads: /home/sarasl/git/GenomeAnalysis/3_rna_assembly/trinity_out_dir/Trinity-GG.fasta
-# my assembled DNA reads: /home/sarasl/git/GenomeAnalysis/2_genome_assembly/Cleaned_files/clear_SOAPdenovo_output_K49.contig
-# my reference genome   : /home/sarasl/git/GenomeAnalysis/Data/scaffold/sel4_NW_015503979.fna
-# /path/bowtie_index    : /home/sarasl/git/GenomeAnalysis/3_rna_assembly/bowtie_index_files
-
-
+### See R script "DEseq2.R" for differential analysis (/5_differential_analysis/DEseq2/DEseq2.R)
 
 
 
