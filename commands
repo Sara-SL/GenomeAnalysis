@@ -157,6 +157,11 @@ sh fastqc_wgs.sh
 sh fastqc_rna_seq_raw.sh
 sh fastqc_rna_seq_trimmed.sh
 
+module load MultiQC
+multiqc -o 1_quality_check/multiqc_wgs/ 1_quality_check/fastqc_wgs/
+multiqc -o 1_quality_check/multiqc_rna_seq/trimmed/ 1_quality_check/fastqc_rna_seq/trimmed/
+multiqc -o 1_quality_check/multiqc_rna_seq/raw/ 1_quality_check/fastqc_rna_seq/raw/
+
 #Trim Raw data 
 module load trimmomatic
 java -jar $TRIMMOMATIC_HOME/trimmomatic.jar PE -trimlog rna_seq_trimLogFile HL_CS17_45.1.fastq.gz HL_CS17_45.2.fastq.gz HL_CS17_45.trimmed_1P.fastq.gz HL_CS17_45.trimmed_1U.fastq.gz HL_CS17_45.trimmed_2P.fastq.gz HL_CS17_45.trimmed_2U.fastq.gz ILLUMINACLIP:$TRIMMOMATIC_HOME/adapters/TruSeq3-PE.fa:2:30:10 LEADING:17 TRAILING:17
